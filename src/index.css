@@ -102,7 +102,7 @@
 }
 
 .hero-gradient {
-  background: linear-gradient(to right, rgba(44, 36, 24, 0.85), rgba(44, 36, 24, 0.6)), url('/hero-bg.jpg');
+  background: linear-gradient(to right, rgba(44, 36, 24, 0.85), rgba(44, 36, 24, 0.6)), url('https://images.unsplash.com/photo-1584986152939-578d4f03d534?auto=format&fit=crop&w=1600&q=80');
   background-size: cover;
   background-position: center;
 }
