@@ -38,7 +38,7 @@ const Navbar = () => {
       <div className="container flex items-center justify-between mx-auto py-4">
         <Link 
           to="/" 
-          className="text-2xl font-serif font-bold text-quetzalli-gold hover:text-quetzalli-terracotta transition-colors"
+          className="text-2xl font-serif font-bold text-quetzalli-black hover:text-quetzalli-terracotta transition-colors"
         >
           Quetzalli
         </Link>
@@ -49,7 +49,7 @@ const Navbar = () => {
             <Link
               key={item.name}
               to={item.path}
-              className="text-quetzalli-gold hover:text-quetzalli-terracotta transition-colors font-medium"
+              className="text-quetzalli-black hover:text-quetzalli-terracotta transition-colors font-medium"
             >
               {item.name}
             </Link>
@@ -59,7 +59,7 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button 
           onClick={() => setIsOpen(!isOpen)} 
-          className="md:hidden text-quetzalli-gold"
+          className="md:hidden text-quetzalli-black"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -74,7 +74,7 @@ const Navbar = () => {
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className="text-quetzalli-gold hover:text-quetzalli-terracotta transition-colors py-2"
+                className="text-quetzalli-black hover:text-quetzalli-terracotta transition-colors py-2"
               >
                 {item.name}
               </Link>
