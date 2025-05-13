@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState("en");
   
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +30,18 @@ const Navbar = () => {
     { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
   ];
+
+  const languages = [
+    { code: "en", flag: "🇺🇸", name: "English" },
+    { code: "fr", flag: "🇫🇷", name: "French" },
+    { code: "es", flag: "🇪🇸", name: "Spanish" }
+  ];
+
+  const handleLanguageChange = (langCode: string) => {
+    setCurrentLanguage(langCode);
+    // In a real implementation, this would change the app's language
+    console.log(`Language changed to ${langCode}`);
+  };
 
   return (
     <nav className={cn(
@@ -56,13 +69,50 @@ const Navbar = () => {
           ))}
         </div>
         
+        {/* Language Selector */}
+        <div className="hidden md:flex items-center ml-8">
+          <div className="relative group">
+            <button className="flex items-center justify-center w-8 h-8 rounded-full focus:outline-none">
+              {languages.find(lang => lang.code === currentLanguage)?.flag}
+            </button>
+            <div className="absolute right-0 mt-2 w-24 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  className="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 flex items-center"
+                  onClick={() => handleLanguageChange(lang.code)}
+                >
+                  <span className="mr-2">{lang.flag}</span>
+                  {lang.name}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+        
         {/* Mobile Menu Button */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)} 
-          className="md:hidden text-quetzalli-black"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center">
+          {/* Mobile Language Selector */}
+          <div className="mr-4">
+            <button 
+              className="flex items-center justify-center w-8 h-8 rounded-full focus:outline-none"
+              onClick={() => {
+                const nextLangIndex = languages.findIndex(lang => lang.code === currentLanguage) + 1;
+                const nextLang = languages[nextLangIndex % languages.length];
+                handleLanguageChange(nextLang.code);
+              }}
+            >
+              {languages.find(lang => lang.code === currentLanguage)?.flag}
+            </button>
+          </div>
+          
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="text-quetzalli-black"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
       
       {/* Mobile Menu */}

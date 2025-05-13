@@ -6,17 +6,14 @@ import ProductHighlight from "@/components/ProductHighlight";
 import BlogPreview from "@/components/BlogPreview";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 
 const Index = () => {
-  // Sample data for featured products
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+  
+  // Sample data for featured products - showing only 2 instead of 3
   const featuredProducts = [
-    {
-      id: "blanco",
-      name: "Quetzalli Blanco",
-      category: "Silver Tequila",
-      imageSrc: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=800&q=80",
-      description: "Crisp and pure with notes of citrus and pepper. Perfect for cocktails or sipping."
-    },
     {
       id: "reposado",
       name: "Quetzalli Reposado",
@@ -60,6 +57,21 @@ const Index = () => {
       category: "Heritage"
     }
   ];
+
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email.trim() !== "") {
+      // In a real application, this would send the email to a backend service
+      console.log(`Subscribing email: ${email}`);
+      setSubscribed(true);
+      setEmail("");
+      
+      // Reset the subscribed state after 3 seconds
+      setTimeout(() => {
+        setSubscribed(false);
+      }, 3000);
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -177,7 +189,7 @@ const Index = () => {
       {/* Blog Preview */}
       <BlogPreview posts={blogPosts} />
       
-      {/* CTA Section */}
+      {/* CTA Section with Email Subscription */}
       <section className="py-20 bg-quetzalli-sand/30">
         <div className="container mx-auto px-4 md:px-0 text-center">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-quetzalli-dark">
@@ -187,6 +199,32 @@ const Index = () => {
             Join our community of tequila enthusiasts and be the first to learn about special releases,
             events, and exclusive offers.
           </p>
+          
+          <div className="max-w-md mx-auto mb-8">
+            {subscribed ? (
+              <div className="bg-green-100 border border-green-200 text-green-700 px-4 py-3 rounded-md">
+                Thank you for subscribing! We'll keep you updated.
+              </div>
+            ) : (
+              <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="flex-grow px-4 py-3 rounded-md border border-quetzalli-dark/20 focus:outline-none focus:border-quetzalli-terracotta"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="bg-quetzalli-terracotta hover:bg-quetzalli-terracotta/90 text-white font-medium py-3 px-6 rounded-md transition-colors"
+                >
+                  Subscribe
+                </button>
+              </form>
+            )}
+          </div>
+          
           <Link
             to="/store"
             className="bg-quetzalli-terracotta hover:bg-quetzalli-terracotta/90 text-white font-medium py-3 px-8 rounded-md transition-colors inline-block"
