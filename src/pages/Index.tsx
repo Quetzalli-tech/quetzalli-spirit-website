@@ -91,7 +91,7 @@ const Index = () => {
             </div>
             <div>
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-quetzalli-dark">
-                Crafted with Ancestral Wisdom
+                Crafted with Ancestral Tradition
               </h2>
               <p className="text-lg mb-6 text-quetzalli-dark/80">
                 Quetzalli Tequila honors the ancient traditions of tequila making while embracing modern
@@ -99,8 +99,8 @@ const Index = () => {
                 mineral-rich soils of Jalisco, Mexico, where our blue agave is cultivated.
               </p>
               <p className="text-lg mb-8 text-quetzalli-dark/80">
-                Every bottle of Quetzalli Tequila represents our family's multi-generational
-                knowledge and our commitment to sustainable practices and uncompromising quality.
+                Every bottle of Quetzalli Tequila represents the legacy of artisinal tequila-making
+                and our commitment to sustainable practices and uncompromising quality.
               </p>
               <Link
                 to="/about"
