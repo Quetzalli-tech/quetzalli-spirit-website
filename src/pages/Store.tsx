@@ -2,8 +2,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useState } from "react";
-import { Sliders, ShoppingCart, Star, Filter } from "lucide-react";
-import { toast } from "sonner";
+import { Sliders, Filter } from "lucide-react";
+import ProductCard from "@/components/ProductCard";
 
 interface Product {
   id: string;
@@ -16,6 +16,7 @@ interface Product {
   isAvailable: boolean;
   isNew: boolean;
   isBestseller: boolean;
+  isComingSoon?: boolean;
 }
 
 const Store = () => {
@@ -36,7 +37,8 @@ const Store = () => {
       rating: 4.8,
       isAvailable: true,
       isNew: false,
-      isBestseller: true
+      isBestseller: true,
+      isComingSoon: true
     },
     {
       id: "reposado",
@@ -72,19 +74,8 @@ const Store = () => {
       rating: 4.9,
       isAvailable: true,
       isNew: false,
-      isBestseller: false
-    },
-    {
-      id: "cristalino",
-      name: "Quetzalli Cristalino",
-      category: "Cristalino",
-      description: "Our aged añejo tequila filtered to crystal clarity while preserving complex flavors.",
-      price: 85,
-      imageSrc: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=800&q=80",
-      rating: 4.7,
-      isAvailable: true,
-      isNew: true,
-      isBestseller: false
+      isBestseller: false,
+      isComingSoon: true
     },
     {
       id: "limited-reserve",
@@ -96,31 +87,8 @@ const Store = () => {
       rating: 5.0,
       isAvailable: false,
       isNew: true,
-      isBestseller: false
-    },
-    {
-      id: "gift-set",
-      name: "Quetzalli Gift Collection",
-      category: "Gift Set",
-      description: "Three 200ml bottles of our signature tequilas: Blanco, Reposado, and Añejo.",
-      price: 65,
-      imageSrc: "https://images.unsplash.com/photo-1469041797191-50ace28483c3?auto=format&fit=crop&w=800&q=80",
-      rating: 4.8,
-      isAvailable: true,
-      isNew: false,
-      isBestseller: true
-    },
-    {
-      id: "mezcal-artesanal",
-      name: "Quetzalli Mezcal Artesanal",
-      category: "Mezcal",
-      description: "Our artisanal mezcal with traditional smoky notes and herbal undertones.",
-      price: 60,
-      imageSrc: "https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151?auto=format&fit=crop&w=800&q=80",
-      rating: 4.6,
-      isAvailable: true,
-      isNew: false,
-      isBestseller: false
+      isBestseller: false,
+      isComingSoon: true
     }
   ];
   
@@ -149,19 +117,6 @@ const Store = () => {
         return a.isBestseller ? -1 : b.isBestseller ? 1 : 0;
     }
   });
-  
-  const addToCart = (product: Product) => {
-    if (!product.isAvailable) {
-      toast("Product currently out of stock", {
-        description: "Please sign up for notifications when this item is back in stock.",
-      });
-      return;
-    }
-    
-    toast.success("Added to cart", {
-      description: `${product.name} has been added to your cart.`,
-    });
-  };
   
   return (
     <div className="min-h-screen">
@@ -266,70 +221,7 @@ const Store = () => {
               {sortedProducts.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {sortedProducts.map((product) => (
-                    <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-md">
-                      {/* Product Image */}
-                      <div className="relative h-64 overflow-hidden">
-                        <img 
-                          src={product.imageSrc}
-                          alt={product.name}
-                          className="w-full h-full object-cover"
-                        />
-                        
-                        {/* Badges */}
-                        <div className="absolute top-4 left-4 flex flex-col gap-2">
-                          {product.isNew && (
-                            <span className="bg-quetzalli-gold text-white px-2 py-1 text-xs rounded">
-                              NEW
-                            </span>
-                          )}
-                          {product.isBestseller && (
-                            <span className="bg-quetzalli-terracotta text-white px-2 py-1 text-xs rounded">
-                              BESTSELLER
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                      
-                      {/* Product Info */}
-                      <div className="p-6">
-                        <div className="flex justify-between items-start">
-                          <div>
-                            <span className="text-xs uppercase tracking-wider text-quetzalli-dark/60">
-                              {product.category}
-                            </span>
-                            <h3 className="text-xl font-serif mt-1 mb-2 text-quetzalli-dark">
-                              {product.name}
-                            </h3>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Star size={16} fill="#D4AF37" className="text-quetzalli-gold" />
-                            <span className="text-sm text-quetzalli-dark/80">{product.rating.toFixed(1)}</span>
-                          </div>
-                        </div>
-                        
-                        <p className="text-sm text-quetzalli-dark/70 mb-4">
-                          {product.description}
-                        </p>
-                        
-                        <div className="flex justify-between items-center">
-                          <span className="text-xl font-medium text-quetzalli-dark">
-                            ${product.price}
-                          </span>
-                          <button
-                            onClick={() => addToCart(product)}
-                            disabled={!product.isAvailable}
-                            className={`flex items-center gap-2 px-4 py-2 rounded-md ${
-                              product.isAvailable
-                              ? "bg-quetzalli-terracotta hover:bg-quetzalli-terracotta/90 text-white"
-                              : "bg-gray-200 text-gray-500 cursor-not-allowed"
-                            }`}
-                          >
-                            <ShoppingCart size={16} />
-                            {product.isAvailable ? "Add to Cart" : "Out of Stock"}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+                    <ProductCard key={product.id} product={product} />
                   ))}
                 </div>
               ) : (
