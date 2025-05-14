@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
@@ -103,7 +102,7 @@ const Index = () => {
                 and our commitment to sustainable practices and uncompromising quality.
               </p>
               <Link
-                to="/about"
+                to="/our-story"
                 className="inline-flex items-center text-quetzalli-terracotta hover:text-quetzalli-terracotta/80 font-medium transition-colors gap-2"
               >
                 Learn More About Our Process <ArrowRight size={16} />

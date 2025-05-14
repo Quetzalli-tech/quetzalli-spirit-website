@@ -35,9 +35,9 @@ const Footer = () => {
             <h4 className="text-lg font-serif mb-4 text-quetzalli-gold">Navigation</h4>
             <ul className="space-y-2">
               <li><Link to="/" className="hover:text-quetzalli-gold transition-colors">Home</Link></li>
-              <li><Link to="/about" className="hover:text-quetzalli-gold transition-colors">About</Link></li>
               <li><Link to="/our-story" className="hover:text-quetzalli-gold transition-colors">Our Story</Link></li>
               <li><Link to="/how-its-made" className="hover:text-quetzalli-gold transition-colors">How It's Made</Link></li>
+              <li><Link to="/the-bottle" className="hover:text-quetzalli-gold transition-colors">The Bottle</Link></li>
             </ul>
           </div>
           
