@@ -98,7 +98,7 @@ const Index = () => {
                 mineral-rich soils of Jalisco, Mexico, where our blue agave is cultivated.
               </p>
               <p className="text-lg mb-8 text-quetzalli-dark/80">
-                Every bottle of Quetzalli Tequila represents the legacy of artisinal tequila-making
+                Every bottle of Quetzalli Tequila represents the legacy of artisanal tequila-making
                 and our commitment to sustainable practices and uncompromising quality.
               </p>
               <Link
