@@ -42,7 +42,7 @@ const Store = () => {
       id: "reposado",
       name: "Quetzalli Reposado",
       category: "Reposado",
-      description: "Aged in oak barrels for 8 months, delivering smooth vanilla and caramel notes.",
+      description: "Crafted through a meticulous aging process, our Reposado spends two months in American oak bourbon barrels before resting for six months in French oak barrels that previously held a notable 2022 vintage from a historic wine estate.",
       price: 55,
       imageSrc: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=800&q=80",
       rating: 4.9,
