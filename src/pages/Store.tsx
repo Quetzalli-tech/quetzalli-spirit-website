@@ -1,7 +1,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Sliders, Filter } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 
@@ -23,6 +23,7 @@ const Store = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [showFilters, setShowFilters] = useState(false);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
+  const [tempPriceMax, setTempPriceMax] = useState(1000); // Temporary state for the slider
   const [sortOrder, setSortOrder] = useState<string>("featured");
   
   // Sample product data
@@ -93,6 +94,29 @@ const Store = () => {
       isComingSoon: true
     }
   ];
+  
+  // Function to scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
+  // Handle category selection with scroll to top
+  const handleCategorySelect = (category: string | null) => {
+    setActiveCategory(category === "All" ? null : category);
+    scrollToTop();
+  };
+  
+  // Handle price slider change (final value)
+  const handleSliderRelease = () => {
+    setPriceRange([priceRange[0], tempPriceMax]);
+    scrollToTop();
+  };
+  
+  // Handle sort order change with scroll to top
+  const handleSortChange = (value: string) => {
+    setSortOrder(value);
+    scrollToTop();
+  };
   
   // Get unique categories
   const categories = ["All", ...new Set(products.map(product => product.category))];
@@ -167,7 +191,7 @@ const Store = () => {
                     {categories.map((category) => (
                       <button
                         key={category}
-                        onClick={() => setActiveCategory(category === "All" ? null : category)}
+                        onClick={() => handleCategorySelect(category === "All" ? null : category)}
                         className={`block w-full text-left px-3 py-2 rounded-md transition-colors ${
                           (category === "All" && !activeCategory) || category === activeCategory
                           ? "bg-quetzalli-sand/30 text-quetzalli-terracotta"
@@ -189,13 +213,15 @@ const Store = () => {
                       min="0"
                       max="1000"
                       step="50"
-                      value={priceRange[1]}
-                      onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
+                      value={tempPriceMax}
+                      onChange={(e) => setTempPriceMax(parseInt(e.target.value))}
+                      onMouseUp={handleSliderRelease}
+                      onTouchEnd={handleSliderRelease}
                       className="w-full h-2 bg-quetzalli-sand/30 rounded-lg appearance-none cursor-pointer accent-quetzalli-terracotta"
                     />
                     <div className="flex justify-between mt-2">
                       <span className="text-quetzalli-dark/70">${priceRange[0]}</span>
-                      <span className="text-quetzalli-dark/70">${priceRange[1]}</span>
+                      <span className="text-quetzalli-dark/70">${tempPriceMax}</span>
                     </div>
                   </div>
                 </div>
@@ -205,7 +231,7 @@ const Store = () => {
                   <h3 className="font-medium text-quetzalli-dark mb-3">Sort By</h3>
                   <select
                     value={sortOrder}
-                    onChange={(e) => setSortOrder(e.target.value)}
+                    onChange={(e) => handleSortChange(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-quetzalli-terracotta"
                   >
                     <option value="featured">Featured</option>
@@ -236,6 +262,8 @@ const Store = () => {
                     onClick={() => {
                       setActiveCategory(null);
                       setPriceRange([0, 1000]);
+                      setTempPriceMax(1000);
+                      scrollToTop();
                     }}
                     className="mt-4 underline text-quetzalli-terracotta"
                   >
