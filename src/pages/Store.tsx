@@ -22,7 +22,7 @@ interface Product {
 const Store = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [showFilters, setShowFilters] = useState(false);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 200]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
   const [sortOrder, setSortOrder] = useState<string>("featured");
   
   // Sample product data
@@ -37,7 +37,7 @@ const Store = () => {
       rating: 4.8,
       isAvailable: true,
       isNew: false,
-      isBestseller: true,
+      isBestseller: false,
       isComingSoon: true
     },
     {
@@ -50,7 +50,8 @@ const Store = () => {
       rating: 4.9,
       isAvailable: true,
       isNew: false,
-      isBestseller: false
+      isBestseller: false,
+      isComingSoon: true
     },
     {
       id: "anejo",
@@ -62,7 +63,8 @@ const Store = () => {
       rating: 5.0,
       isAvailable: true,
       isNew: false,
-      isBestseller: false
+      isBestseller: false,
+      isComingSoon: true
     },
     {
       id: "extra-anejo",
@@ -86,7 +88,7 @@ const Store = () => {
       imageSrc: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=800&q=80",
       rating: 5.0,
       isAvailable: false,
-      isNew: true,
+      isNew: false,
       isBestseller: false,
       isComingSoon: true
     }
@@ -185,8 +187,8 @@ const Store = () => {
                     <input
                       type="range"
                       min="0"
-                      max="200"
-                      step="10"
+                      max="1000"
+                      step="50"
                       value={priceRange[1]}
                       onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
                       className="w-full h-2 bg-quetzalli-sand/30 rounded-lg appearance-none cursor-pointer accent-quetzalli-terracotta"
@@ -233,7 +235,7 @@ const Store = () => {
                   <button 
                     onClick={() => {
                       setActiveCategory(null);
-                      setPriceRange([0, 200]);
+                      setPriceRange([0, 1000]);
                     }}
                     className="mt-4 underline text-quetzalli-terracotta"
                   >
