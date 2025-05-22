@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import Index from "./pages/Index";
 import OurStory from "./pages/OurStory";
 import HowItsMade from "./pages/HowItsMade";
@@ -21,19 +22,21 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/our-story" element={<OurStory />} />
-          <Route path="/how-its-made" element={<HowItsMade />} />
-          <Route path="/the-bottle" element={<TheBottle />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/store" element={<Store />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <LanguageProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/our-story" element={<OurStory />} />
+            <Route path="/how-its-made" element={<HowItsMade />} />
+            <Route path="/the-bottle" element={<TheBottle />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/store" element={<Store />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState("en");
+  const { language, setLanguage, translate } = useLanguage();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -38,8 +39,9 @@ const Navbar = () => {
   ];
 
   const handleLanguageChange = (langCode: string) => {
-    setCurrentLanguage(langCode);
-    // In a real implementation, this would change the app's language
+    setLanguage(langCode as "en" | "fr" | "es");
+    window.scrollTo(0, 0);
+    // Log language change
     console.log(`Language changed to ${langCode}`);
   };
 
@@ -64,7 +66,7 @@ const Navbar = () => {
               to={item.path}
               className="text-quetzalli-black hover:text-quetzalli-terracotta transition-colors font-medium"
             >
-              {item.name}
+              {translate(item.name)}
             </Link>
           ))}
         </div>
@@ -73,7 +75,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center ml-8">
           <div className="relative group">
             <button className="flex items-center justify-center w-8 h-8 rounded-full focus:outline-none">
-              {languages.find(lang => lang.code === currentLanguage)?.flag}
+              {languages.find(lang => lang.code === language)?.flag}
             </button>
             <div className="absolute right-0 mt-2 w-24 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
               {languages.map((lang) => (
@@ -97,12 +99,12 @@ const Navbar = () => {
             <button 
               className="flex items-center justify-center w-8 h-8 rounded-full focus:outline-none"
               onClick={() => {
-                const nextLangIndex = languages.findIndex(lang => lang.code === currentLanguage) + 1;
+                const nextLangIndex = languages.findIndex(lang => lang.code === language) + 1;
                 const nextLang = languages[nextLangIndex % languages.length];
                 handleLanguageChange(nextLang.code);
               }}
             >
-              {languages.find(lang => lang.code === currentLanguage)?.flag}
+              {languages.find(lang => lang.code === language)?.flag}
             </button>
           </div>
           
@@ -126,7 +128,7 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 className="text-quetzalli-black hover:text-quetzalli-terracotta transition-colors py-2"
               >
-                {item.name}
+                {translate(item.name)}
               </Link>
             ))}
           </div>
