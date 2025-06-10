@@ -1,3 +1,4 @@
+
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -12,9 +13,8 @@ const Hero = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="https://github.com/Quetzalli-tech/quetzalli-spirit-website/releases/download/v2.0-alpha/Home.Page.mp4?raw=true" type="video/mp4" />
+        <source src="https://github.com/Quetzalli-tech/quetzalli-spirit-website/releases/download/v2.0-alpha/Home.Page.mp4" type="video/mp4" />
         {/* Fallback for browsers that don't support video */}
-      
       </video>
       
       {/* Dark overlay for better text readability */}
