@@ -83,9 +83,9 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
               <img 
-                src="https://raw.githubusercontent.com/Quetzalli-tech/my-imagesP/main/WhatsApp Image 2025-06-10 at 13.33.55_d5b57920.jpg"
+                src="https://raw.githubusercontent.com/Quetzalli-tech/my-imagesP/main/WhatsApp Image 2025-06-10 at 13.34.13_66e9b947 (1).jpg"
                 alt="Tequila agave fields"
-                className="rounded-lg shadow-lg w-full h-[500px] object-cover object-left"
+                className="rounded-lg shadow-lg w-full h-[500px] object-cover object-right"
               />
             </div>
             <div>
