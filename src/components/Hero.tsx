@@ -1,22 +1,8 @@
+
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
-  const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
-    console.error("Video failed to load:", e);
-    const video = e.currentTarget;
-    console.error("Video error details:", {
-      error: video.error,
-      networkState: video.networkState,
-      readyState: video.readyState,
-      src: video.src
-    });
-  };
-
-  const handleVideoLoad = () => {
-    console.log("Video loaded successfully");
-  };
-
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
@@ -26,16 +12,10 @@ const Hero = () => {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        onError={handleVideoError}
-        onLoadedData={handleVideoLoad}
-        onCanPlay={() => console.log("Video can play")}
       >
         <source src="https://github.com/Quetzalli-tech/quetzalli-spirit-website/releases/download/v2.0-alpha/Home.Page.mp4" type="video/mp4" />
         {/* Fallback for browsers that don't support video */}
       </video>
-      
-      {/* Fallback background in case video doesn't load */}
-      <div className="absolute inset-0 bg-gradient-to-r from-quetzalli-dark/85 to-quetzalli-dark/60 bg-[url('https://images.unsplash.com/photo-1584986152939-578d4f03d534?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center"></div>
       
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/40"></div>
