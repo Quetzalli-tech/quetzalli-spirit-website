@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+-import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -32,11 +32,10 @@ const Hero = () => {
       >
         <source src="https://github.com/Quetzalli-tech/quetzalli-spirit-website/releases/download/v1.0/Home.Page.mp4" type="video/mp4" />
         {/* Fallback for browsers that don't support video */}
+        <div className="absolute inset-0 hero-gradient"></div>
       </video>
       
-      {/* Fallback background in case video doesn't load */}
-      <div className="absolute inset-0 bg-gradient-to-r from-quetzalli-dark/85 to-quetzalli-dark/60 bg-[url('https://images.unsplash.com/photo-1584986152939-578d4f03d534?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center"></div>
-      
+       
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/40"></div>
       
