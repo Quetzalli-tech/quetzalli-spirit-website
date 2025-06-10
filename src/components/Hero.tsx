@@ -1,11 +1,24 @@
-
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 hero-gradient"></div>
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+        {/* Fallback for browsers that don't support video */}
+        <div className="absolute inset-0 hero-gradient"></div>
+      </video>
+      
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/40"></div>
       
       <div className="container relative z-10 text-center px-4 md:px-0">
         <div className="max-w-3xl mx-auto">
