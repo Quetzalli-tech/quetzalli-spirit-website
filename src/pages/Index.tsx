@@ -85,7 +85,7 @@ const Index = () => {
               <img 
                 src="https://raw.githubusercontent.com/Quetzalli-tech/my-imagesP/main/WhatsApp Image 2025-06-10 at 13.33.55_d5b57920.jpg"
                 alt="Tequila agave fields"
-                className="rounded-lg shadow-lg w-full h-[500px] object-cover"
+                className="rounded-lg shadow-lg w-[3450] h-[2300px] object-cover"
               />
             </div>
             <div>
