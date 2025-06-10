@@ -30,7 +30,7 @@ const Hero = () => {
         onLoadedData={handleVideoLoad}
         onCanPlay={() => console.log("Video can play")}
       >
-        <source src="https://github.com/Quetzalli-tech/quetzalli-spirit-website/releases/download/v2.0-alpha/Home.Page.mp4" type="video/mp4" />
+        <source src="https://github.com/Quetzalli-tech/quetzalli-spirit-website/releases/download/v1.0/Home.Page.mp4" type="video/mp4" />
         {/* Fallback for browsers that don't support video */}
       </video>
       
