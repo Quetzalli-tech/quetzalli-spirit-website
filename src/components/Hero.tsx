@@ -14,7 +14,7 @@ const Hero = () => {
       >
         <source src="https://github.com/Quetzalli-tech/quetzalli-spirit-website/releases/download/v2.0-alpha/Home.Page.mp4?raw=true" type="video/mp4" />
         {/* Fallback for browsers that don't support video */}
-        <div className="absolute inset-0 hero-gradient"></div>
+      
       </video>
       
       {/* Dark overlay for better text readability */}
