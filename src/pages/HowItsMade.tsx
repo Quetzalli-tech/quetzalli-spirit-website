@@ -32,7 +32,7 @@ const HowItsMade = () => {
             </div>
             <div>
               <h2 className="text-3xl font-serif font-bold mb-6 text-quetzalli-dark">
-                Excelenf
+                Crafting Excellence
               </h2>
               
               <p className="text-lg mb-6 text-quetzalli-dark/80">
@@ -107,7 +107,7 @@ const HowItsMade = () => {
               </div>
               <h3 className="text-2xl font-serif font-bold mb-4 text-quetzalli-dark">Harvesting</h3>
               <p className="text-lg text-quetzalli-dark/80 mb-6">
-                Penis
+                AAAAAAAAAAAAA800
               </p>
               <p className="text-lg text-quetzalli-dark/80">
                 This labor-intensive process ensures we start with only the highest quality raw materials, setting 
