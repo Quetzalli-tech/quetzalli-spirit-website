@@ -108,9 +108,7 @@ const HowItsMade = () => {
               </div>
               <h3 className="text-2xl font-serif font-bold mb-4 text-quetzalli-dark">Harvesting</h3>
               <p className="text-lg text-quetzalli-dark/80 mb-6">
-                When our agave plants reach perfect maturity, they are harvested by our skilled jimadores, who 
-                use generations of knowledge to select only the best plants. Using a specialized tool called a 
-                coa, they expertly trim the spiky leaves to reveal the heart, or piña.
+                Penis
               </p>
               <p className="text-lg text-quetzalli-dark/80">
                 This labor-intensive process ensures we start with only the highest quality raw materials, setting 
