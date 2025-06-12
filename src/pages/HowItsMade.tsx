@@ -97,7 +97,7 @@ const HowItsMade = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24">
             <div className="order-2 md:order-1">
               <img 
-                src="https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151?auto=format&fit=crop&w=800&q=80"
+                src="https://raw.githubusercontent.com/Quetzalli-tech/my-imagesP/main/WhatsApp Image 2025-06-10 at 13.33.58_58b93b99.jpg"
                 alt="Jimador harvesting agave" 
                 className="rounded-lg shadow-lg w-full h-[400px] object-cover"
               />
