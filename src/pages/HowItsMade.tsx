@@ -135,7 +135,7 @@ const HowItsMade = () => {
             </div>
             <div>
               <img 
-                src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=800&q=80"
+                src="https://raw.githubusercontent.com/Quetzalli-tech/my-imagesP/main/WhatsApp Image 2025-06-10 at 13.34.09_1faeefdd.jpg"
                 alt="Traditional brick ovens" 
                 className="rounded-lg shadow-lg w-full h-[400px] object-cover"
               />
@@ -188,7 +188,7 @@ const HowItsMade = () => {
             </div>
             <div>
               <img 
-                src="https://images.unsplash.com/photo-1469041797191-50ace28483c3?auto=format&fit=crop&w=800&q=80"
+                src="https://raw.githubusercontent.com/Quetzalli-tech/my-imagesP/main/Fermentation.jpg"
                 alt="Fermentation tanks" 
                 className="rounded-lg shadow-lg w-full h-[400px] object-cover"
               />
@@ -199,7 +199,7 @@ const HowItsMade = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24">
             <div className="order-2 md:order-1">
               <img 
-                src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=800&q=80"
+                src="https://raw.githubusercontent.com/Quetzalli-tech/my-imagesP/main/Distillation.jpg"
                 alt="Copper pot stills" 
                 className="rounded-lg shadow-lg w-full h-[400px] object-cover"
               />
@@ -227,7 +227,7 @@ const HowItsMade = () => {
               <div className="inline-block bg-quetzalli-terracotta text-white font-serif text-2xl w-12 h-12 rounded-full flex items-center justify-center mb-6">
                 7
               </div>
-              <h3 className="text-2xl font-serif font-bold mb-4 text-quetzalli-dark">Aging & Bottling</h3>
+              <h3 className="text-2xl font-serif font-bold mb-4 text-quetzalli-dark">Aging</h3>
               <p className="text-lg text-quetzalli-dark/80 mb-6">
                 For our Blanco tequila, the spirit is briefly rested before bottling to preserve its bright, vibrant 
                 agave character. Our Reposado ages for 8-12 months in American and French oak barrels, while our 
@@ -241,7 +241,7 @@ const HowItsMade = () => {
             </div>
             <div>
               <img 
-                src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=800&q=80"
+                src="https://raw.githubusercontent.com/Quetzalli-tech/my-imagesP/main/Barrels.jpg"
                 alt="Oak barrels for aging" 
                 className="rounded-lg shadow-lg w-full h-[400px] object-cover"
               />
