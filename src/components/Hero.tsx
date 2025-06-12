@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -12,12 +11,11 @@ const Hero = () => {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        preload="auto"  // Ensures video loads properly
-    onCanPlayThrough={() => this.play()} // Forces play when ready
-    key={Date.now()} // Bypasses browser caching issues
+        preload="auto"
+        onCanPlayThrough={(e) => e.currentTarget.play()}
+        key={Date.now()}
       >
         <source src="https://github.com/Quetzalli-tech/quetzalli-spirit-website/releases/download/v2.0-alpha/Home.Page.mp4" type="video/mp4" />
-        {/* Fallback for browsers that don't support video */}
       </video>
       
       {/* Dark overlay for better text readability */}
