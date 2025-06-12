@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
@@ -33,7 +32,7 @@ const HowItsMade = () => {
             </div>
             <div>
               <h2 className="text-3xl font-serif font-bold mb-6 text-quetzalli-dark">
-                Crafting Excellence
+                Excelenf
               </h2>
               
               <p className="text-lg mb-6 text-quetzalli-dark/80">
