@@ -53,7 +53,7 @@ const Navbar = () => {
       <div className="container flex items-center justify-between mx-auto py-4">
         <Link 
           to="/" 
-          className="text-2xl font-serif font-bold text-quetzalli-black hover:text-quetzalli-terracotta transition-colors"
+          className="text-2xl font-serif font-bold text-quetzalli-cream hover:text-quetzalli-terracotta transition-colors"
         >
           Quetzalli
         </Link>
